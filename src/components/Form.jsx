@@ -22,7 +22,7 @@ const Form = () => {
         />
       </label>
       <button type="submit" className={submit}>
-        <i class="fa-solid fa-basketball"></i> BALL
+        <i className="fa-solid fa-basketball"></i> BALL
       </button>
     </form>
   );
