@@ -1,1 +1,37 @@
 @import './gill-sans';
+
+$primary: #ec4c8a;
+$secondary: #4369b2;
+$gray: #393e46;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.125rem;
+  font-family: 'Gill Sans', Arial, Helvetica, sans-serif;
+  margin: 0 auto;
+  background-color: #000;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+}
+
+.display-1 {
+  font-size: 1rem;
+  height: max-content;
+  margin: 0;
+}
+
+.white {
+  color: #fff;
+}
