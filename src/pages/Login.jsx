@@ -4,7 +4,8 @@ import ballhead from '../assets/images/ballhead.png';
 import Form from '../components/Form';
 
 const Login = () => {
-  const { languages, logIn } = styles;
+  const { wrapper, forgotUsername, signInWithTwitter, languages, logIn } =
+    styles;
 
   return (
     <section className={logIn}>
@@ -14,8 +15,8 @@ const Login = () => {
         <span>SP</span>
       </div>
 
-      <div>
-        <figure style={{ margin: 0 }}>
+      <div className={wrapper}>
+        <figure>
           <img
             src={ballhead}
             alt="ballhead"
@@ -23,7 +24,14 @@ const Login = () => {
           />
         </figure>
         <Form />
+        <button className={forgotUsername} type="button">
+          forgot username/password
+        </button>
       </div>
+
+      <button className={signInWithTwitter} type="button">
+        sign in with twitter
+      </button>
     </section>
   );
 };

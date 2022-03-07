@@ -4,8 +4,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 3rem;
   min-height: 100vh;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   .languages {
     display: flex;
@@ -18,5 +24,22 @@
       font-weight: 700;
       font-size: 1rem;
     }
+  }
+
+  .forgotUsername {
+    background-color: transparent;
+    border: 0;
+    color: $primary;
+    text-decoration: underline;
+    margin-top: 10px;
+  }
+
+  .signInWithTwitter {
+    background-color: transparent;
+    border: 1px solid $primary;
+    color: $primary;
+    padding-block: 0.5rem;
+    width: 100%;
+    border-radius: 5px;
   }
 }

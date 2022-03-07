@@ -4,9 +4,19 @@
   background-color: $primary;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 1rem 0 2rem 0;
+  gap: 2rem;
+  padding: 1.75rem 0 2rem 0;
+  border-radius: 5px;
   align-items: center;
+  width: 100%;
+
+  .field {
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 5px;
+    border: 0;
+    outline: none;
+  }
 
   .submit {
     background-color: transparent;
@@ -16,10 +26,10 @@
     align-items: center;
     gap: 0.5rem;
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 
     i {
-      font-size: 3rem;
+      font-size: 2rem;
     }
   }
 }
