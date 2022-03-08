@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import styles from '../sass/components/form.module.scss';
 
 const Form = () => {
+  const [logged, setLogged] = useState(false);
   const { field, submit, form } = styles;
   return (
     <form className={form}>
@@ -21,7 +23,7 @@ const Form = () => {
           placeholder="password"
         />
       </label>
-      <button type="submit" className={submit}>
+      <button onClick={() => setLogged(true)} type="submit" className={submit}>
         <i className="fa-solid fa-basketball"></i> BALL
       </button>
     </form>
