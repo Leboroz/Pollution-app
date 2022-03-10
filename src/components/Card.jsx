@@ -1,23 +1,20 @@
-import { useDispatch } from 'react-redux';
-import { fetchPollution } from '../redux/pollution/reducer';
-import PollutionAPI from '../redux/PollutionAPI';
 import styles from '../sass/components/card.module.scss';
 import { Link } from 'react-router-dom';
 
-const Card = ({ name, lon, lat, short, even }) => {
-  const dispatch = useDispatch();
+const Card = (props) => {
   const { card, darker } = styles;
+  const { name, lon, lat, short, even, isCard = false } = props;
+  const { value } = props;
 
-  const handleAboutFetch = async () => {
-    const response = await PollutionAPI.get(lat, lon);
-    dispatch(fetchPollution(response));
-  };
-
-  return (
+  return isCard ? (
     <Link
-      onClick={handleAboutFetch}
       className={`${card} ${even ? darker : ''}`}
-      to="/home/about"
+      style={{
+        width: '50%',
+        aspectRatio: 1,
+        flexDirection: 'column',
+      }}
+      to={`/home/${name}?lat=${lat}&lon=${lon}`}
     >
       <i className="fa-regular fa-circle-right"></i>
       <h2>
@@ -28,6 +25,20 @@ const Card = ({ name, lon, lat, short, even }) => {
         <p>lat: {lat}</p>
       </div>
     </Link>
+  ) : (
+    <div className={`${card} ${even ? darker : ''}`}>
+      <h2>{name}</h2>
+      <div
+        style={{
+          display: 'flex',
+          width: '8rem',
+          justifyContent: 'space-between',
+        }}
+      >
+        <p>value: {value}</p>
+        <i className="fa-regular fa-circle-right"></i>
+      </div>
+    </div>
   );
 };
 
