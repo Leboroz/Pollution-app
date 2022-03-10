@@ -1,10 +1,15 @@
-import { data } from '../redux/data';
-import Card from '../components/Card';
 import WorldMap from 'react-svg-worldmap';
-import { Routes, Route } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { Routes, Route, NavLink } from 'react-router-dom';
+import About from './About';
+import { useState } from 'react';
+import Grid from './Grid';
+import Navbar from '../components/Navbar';
 
 const Home = () => {
+  const [header, setHeader] = useState('STATS BY COUNTRY');
+  const [menu, setMenu] = useState('bars');
+  const [open, setOpen] = useState(false);
+
   const stylingFunction = () => {
     return {
       fill: '#ec4c8a',
@@ -17,6 +22,7 @@ const Home = () => {
 
   return (
     <section>
+      {open && <Navbar open={setOpen} />}
       <header
         style={{
           display: 'flex',
@@ -28,9 +34,21 @@ const Home = () => {
           fontSize: '1.15rem',
         }}
       >
-        <i className="fa-solid fa-bars"></i>
+        {menu === 'bars' ? (
+          <button
+          onClick={() => setOpen(true)}
+            style={{ border: 0, backgroundColor: 'transparent', color: '#fff' }}
+            type="button"
+          >
+            <i className={`fa-solid fa-${menu}`}></i>
+          </button>
+        ) : (
+          <NavLink to="/" style={{ color: '#fff' }}>
+            <i className={`fa-solid fa-${menu}`}></i>
+          </NavLink>
+        )}
         <h1 style={{ fontWeight: 300, fontSize: '1.15rem', margin: 0 }}>
-          most views
+          pollution
         </h1>
         <i className="fa-solid fa-gear"></i>
       </header>
@@ -63,29 +81,18 @@ const Home = () => {
             fontSize: '1rem',
           }}
         >
-          STATS BY COUNTRY
+          {header}
         </p>
       </div>
       <Routes>
         <Route
           path="/"
-          element={
-            <div style={{ display: 'flex', flexWrap: 'wrap', color: '#fff' }}>
-              {data.map((country, index) => (
-                <Card
-                  key={country[0]}
-                  even={(index + 1) % 4 === 0 || index % 4 === 0 ? true : false}
-                  name={country[3]}
-                  lat={country[1]}
-                  lon={country[2]}
-                  short={country[0]}
-                />
-              ))}
-            </div>
-          }
+          element={<Grid setHeader={setHeader} setMenu={setMenu} />}
         />
-        <Route />
-        <Route path="/about" element={<About />} />
+        <Route
+          path="/:name"
+          element={<About setHeader={setHeader} setMenu={setMenu} />}
+        />
       </Routes>
     </section>
   );
