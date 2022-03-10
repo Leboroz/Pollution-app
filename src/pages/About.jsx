@@ -4,15 +4,16 @@ import { useLocation, useParams } from 'react-router-dom';
 import PollutionAPI from '../redux/PollutionAPI';
 import Card from '../components/Card';
 import { fetchPollution } from '../redux/pollution/reducer';
+import { data } from '../redux/data';
 
-const About = ({ setHeader, setMenu }) => {
+const About = ({ setHeader, setMenu, setCountry }) => {
   const dispatch = useDispatch();
   const location = useLocation().search;
   const name = useParams().name;
   const state = useSelector((state) => state.pollution.pollutionData);
-
-  const reExp = /^\?lat=(\d+(\.\d+)?)&lon=(\d+(\.\d+)?)$/;
-
+  const reExp = /^\?lat=(\-?\d+(\.\d+)?)&lon=(\-?\d+(\.\d+)?)$/;
+  const countryName = data.filter((country) => country[3] === name)[0][0];
+  setCountry(countryName);
   const lat = location.match(reExp)[1];
   const lon = location.match(reExp)[3];
 

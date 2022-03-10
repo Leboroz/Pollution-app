@@ -2,10 +2,11 @@ import { data } from '../redux/data';
 import Card from '../components/Card';
 import { useEffect } from 'react';
 
-const Grid = ({ setHeader, setMenu }) => {
+const Grid = ({ setHeader, setMenu, setCountry }) => {
   useEffect(() => {
     setHeader('STATS BY COUNTRY');
     setMenu('bars');
+    setCountry('');
   }, []);
 
   return (

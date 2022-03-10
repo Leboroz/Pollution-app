@@ -4,8 +4,6 @@ import style from '../sass/pages/navbar.module.scss';
 
 const Navbar = ({ open }) => {
   const { header, wrapper, title, navItem, navbar, container } = style;
-  console.log(style);
-
   return (
     <header className={container}>
       <div className={header}>
