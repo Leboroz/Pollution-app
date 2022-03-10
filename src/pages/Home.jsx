@@ -9,12 +9,12 @@ const Home = () => {
   const [header, setHeader] = useState('STATS BY COUNTRY');
   const [menu, setMenu] = useState('bars');
   const [open, setOpen] = useState(false);
-
-  const stylingFunction = () => {
+  const [countryName, setCountryName] = useState('US');
+  const stylingFunction = ({ countryCode }) => {
     return {
-      fill: '#ec4c8a',
+      fill: countryCode === countryName ? '#000' : '#ec4c8a',
       stroke: 'black',
-      strokeWidth: 1,
+      strokeWidth: 5,
       strokeOpacity: 0.2,
       cursor: 'pointer',
     };
@@ -36,8 +36,13 @@ const Home = () => {
       >
         {menu === 'bars' ? (
           <button
-          onClick={() => setOpen(true)}
-            style={{ border: 0, backgroundColor: 'transparent', color: '#fff' }}
+            onClick={() => setOpen(true)}
+            style={{
+              border: 0,
+              backgroundColor: 'transparent',
+              color: '#fff',
+              fontSize: '1.2rem',
+            }}
             type="button"
           >
             <i className={`fa-solid fa-${menu}`}></i>
@@ -50,7 +55,6 @@ const Home = () => {
         <h1 style={{ fontWeight: 300, fontSize: '1.15rem', margin: 0 }}>
           pollution
         </h1>
-        <i className="fa-solid fa-gear"></i>
       </header>
 
       <div style={{ position: 'relative' }}>
@@ -87,11 +91,23 @@ const Home = () => {
       <Routes>
         <Route
           path="/"
-          element={<Grid setHeader={setHeader} setMenu={setMenu} />}
+          element={
+            <Grid
+              setHeader={setHeader}
+              setMenu={setMenu}
+              setCountry={setCountryName}
+            />
+          }
         />
         <Route
           path="/:name"
-          element={<About setHeader={setHeader} setMenu={setMenu} />}
+          element={
+            <About
+              setHeader={setHeader}
+              setMenu={setMenu}
+              setCountry={setCountryName}
+            />
+          }
         />
       </Routes>
     </section>
