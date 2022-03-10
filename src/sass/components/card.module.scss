@@ -1,12 +1,9 @@
 @use '../global.scss' as *;
 
 .card {
-  width: 50%;
-  aspect-ratio: 1;
   background-color: $primary;
   padding: 20px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   color: #fff;
