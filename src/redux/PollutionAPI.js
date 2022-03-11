@@ -1,5 +1,5 @@
 export default class PollutionAPI {
-  static END_POINT = 'http://api.openweathermap.org/data/2.5/air_pollution';
+  static END_POINT = 'https://api.openweathermap.org/data/2.5/air_pollution';
 
   static LAT = '?lat=';
 
