@@ -80,17 +80,9 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Authors
 
-👤 **Author1**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- **GitHub**: [@Leboroz](https://github.com/leboroz)
+- **Twitter**: [@Leboroz](https://twitter.com/leboroz)
+- **LinkedIn**: [Leonardo Albornoz](https://linkedin.com/in/linkedinhandle)
 
 ## 🤝 Contributing
 
