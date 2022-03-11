@@ -1,36 +1,41 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useParams } from 'react-router-dom';
+import { func } from 'prop-types';
 import PollutionAPI from '../redux/PollutionAPI';
-import Card from '../components/Card';
 import { fetchPollution } from '../redux/pollution/reducer';
-import { data } from '../redux/data';
+import { useAppDispatch, useAppSelector } from '../redux/redux-hooks';
+import Card from '../components/Card';
+import data from '../redux/data';
 
 const About = ({ setHeader, setMenu, setCountry }) => {
-  const dispatch = useDispatch();
-  const location = useLocation().search;
-  const name = useParams().name;
-  const state = useSelector((state) => state.pollution.pollutionData);
-  const reExp = /^\?lat=(\-?\d+(\.\d+)?)&lon=(\-?\d+(\.\d+)?)$/;
+  const dispatch = useAppDispatch();
+  const state = useAppSelector((state) => state.pollution.pollutionData);
+  const { search: location } = useLocation();
+  const { name } = useParams();
+  const reExp = /^\?lat=(-?\d+(\.\d+)?)&lon=(-?\d+(\.\d+)?)$/;
   const countryName = data.filter((country) => country[3] === name)[0][0];
   setCountry(countryName);
   const lat = location.match(reExp)[1];
   const lon = location.match(reExp)[3];
 
   let pollutant;
+
   useEffect(async () => {
     const response = await PollutionAPI.get(lat, lon);
     response.name = name;
+
     dispatch(fetchPollution(response));
   }, [pollutant]);
+
   if (Object.keys(state).length > 0) {
     pollutant = Object.entries(state.list[0].components);
     setHeader(state.name.toUpperCase());
     setMenu('chevron-left');
   }
+
   return (
-    (pollutant &&
-      pollutant.map((pollutant, index) => {
+    (pollutant
+      && pollutant.map((pollutant, index) => {
         let name;
         switch (pollutant[0]) {
           case 'co':
@@ -57,17 +62,24 @@ const About = ({ setHeader, setMenu, setCountry }) => {
           case 'nh3':
             name = 'NH\u2083';
             break;
+          default: break;
         }
         return (
           <Card
             key={name}
             name={name}
             value={pollutant[1]}
-            even={index % 2 === 0 ? false : true}
+            even={index % 2 !== 0}
           />
         );
       })) || <h1>loading</h1>
   );
+};
+
+About.propTypes = {
+  setHeader: func.isRequired,
+  setMenu: func.isRequired,
+  setCountry: func.isRequired,
 };
 
 export default About;

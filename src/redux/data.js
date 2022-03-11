@@ -1,4 +1,4 @@
-export const data = [
+const data = [
   ['AD', 42.546245, 1.601554, 'Andorra'],
   ['AE', 23.424076, 53.847818, 'United Arab Emirates'],
   ['AF', 33.93911, 67.709953, 'Afghanistan'],
@@ -249,3 +249,5 @@ export const data = [
   ['ZM', -13.133897, 27.849332, 'Zambia'],
   ['ZW', -19.015438, 29.154857, 'Zimbabwe'],
 ];
+
+export default data;

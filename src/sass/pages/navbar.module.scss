@@ -19,7 +19,7 @@
     background-color: rgba(35, 35, 35, 1);
     margin: 0;
     height: 70%;
-    aspect-ratio: 1;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -47,6 +47,7 @@
 
 .navbar {
   height: 75vh;
+
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -63,12 +64,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
       .navItem {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         text-decoration: none;
+        background-color: transparent;
+        border: 0;
 
         i {
           font-size: 5rem;

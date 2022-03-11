@@ -1,66 +1,110 @@
+import { func } from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import pic from '../assets/images/profile-pic.png';
 import style from '../sass/pages/navbar.module.scss';
 
 const Navbar = ({ open }) => {
-  const { header, wrapper, title, navItem, navbar, container } = style;
+  const {
+    header,
+    wrapper,
+    title,
+    navItem,
+    navbar,
+    container,
+  } = style;
   return (
     <header className={container}>
       <div className={header}>
         <figure className={wrapper}>
-          <img src={pic} alt="profile picture" />
+          <img src={pic} alt="profile" />
         </figure>
         <div className={title}>
           <h3>User</h3>
           <p>Guess</p>
         </div>
-        <i
+        <button
+          type="button"
           onClick={() => {
             open(false);
           }}
-          style={{ color: '#fff', alignSelf: 'flex-start', fontSize: '2rem' }}
-          className="fa-solid fa-circle-xmark"
-        ></i>
+          style={{
+            color: '#fff',
+            alignSelf: 'flex-start',
+            fontSize: '2rem',
+            border: 0,
+            backgroundColor: 'transparent',
+          }}
+        >
+          <i className="fa-solid fa-circle-xmark" />
+        </button>
       </div>
       <nav className={navbar}>
         <ul>
           <li>
-            <NavLink className={navItem} to="/home">
+            <NavLink
+              onClick={() => {
+                open(false);
+              }}
+              className={navItem}
+              to="/home"
+            >
               <i
                 style={{ color: '#fff' }}
                 className="fa-solid fa-table-cells-large"
-              ></i>
+              />
               <p>COUNTRIES</p>
             </NavLink>
           </li>
           <li>
-            <NavLink className={navItem} to="/stats">
+            <button
+              onClick={() => {
+                open(false);
+              }}
+              className={navItem}
+              type="button"
+            >
               <i
                 style={{ color: '#fff' }}
                 className="fa-solid fa-chart-line"
-              ></i>
+              />
               <p>YEAR STATS</p>
-            </NavLink>
+            </button>
           </li>
           <li>
-            <NavLink className={navItem} to="/premium">
+            <button
+              onClick={() => {
+                open(false);
+              }}
+              className={navItem}
+              type="button"
+            >
               <i
                 style={{ color: '#fff' }}
                 className="fa-solid fa-cart-shopping"
-              ></i>
+              />
               <p>PREMIUM</p>
-            </NavLink>
+            </button>
           </li>
           <li>
-            <NavLink className={navItem} to="/settings">
-              <i style={{ color: '#fff' }} className="fa-solid fa-gear"></i>
+            <button
+              onClick={() => {
+                open(false);
+              }}
+              className={navItem}
+              type="button"
+            >
+              <i style={{ color: '#fff' }} className="fa-solid fa-gear" />
               <p>SETTINGS</p>
-            </NavLink>
+            </button>
           </li>
         </ul>
       </nav>
     </header>
   );
+};
+
+Navbar.propTypes = {
+  open: func.isRequired,
 };
 
 export default Navbar;
