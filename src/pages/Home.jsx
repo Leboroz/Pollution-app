@@ -1,24 +1,27 @@
-import WorldMap from 'react-svg-worldmap';
 import { Routes, Route, NavLink } from 'react-router-dom';
-import About from './About';
 import { useState } from 'react';
+import WorldMap from 'react-svg-worldmap';
 import Grid from './Grid';
+import About from './About';
 import Navbar from '../components/Navbar';
+import styles from '../sass/pages/home.module.scss';
 
 const Home = () => {
   const [header, setHeader] = useState('STATS BY COUNTRY');
   const [menu, setMenu] = useState('bars');
   const [open, setOpen] = useState(false);
   const [countryName, setCountryName] = useState('US');
-  const stylingFunction = ({ countryCode }) => {
-    return {
+  const stylingFunction = ({ countryCode }) => (
+    {
       fill: countryCode === countryName ? '#000' : '#ec4c8a',
       stroke: 'black',
       strokeWidth: 5,
       strokeOpacity: 0.2,
       cursor: 'pointer',
-    };
-  };
+    }
+  );
+
+  const { worldWrapper } = styles;
 
   return (
     <section>
@@ -45,11 +48,11 @@ const Home = () => {
             }}
             type="button"
           >
-            <i className={`fa-solid fa-${menu}`}></i>
+            <i className={`fa-solid fa-${menu}`} />
           </button>
         ) : (
-          <NavLink to="/" style={{ color: '#fff' }}>
-            <i className={`fa-solid fa-${menu}`}></i>
+          <NavLink to="/home" style={{ color: '#fff' }}>
+            <i className={`fa-solid fa-${menu}`} />
           </NavLink>
         )}
         <h1 style={{ fontWeight: 300, fontSize: '1.15rem', margin: 0 }}>
@@ -57,7 +60,7 @@ const Home = () => {
         </h1>
       </header>
 
-      <div style={{ position: 'relative' }}>
+      <div className={worldWrapper} style={{ position: 'relative' }}>
         <WorldMap
           size="responsive"
           data={[]}
@@ -68,13 +71,13 @@ const Home = () => {
           style={{
             position: 'absolute',
             top: 0,
-            left: '10%',
-            width: '80%',
+            left: 0,
+            width: '100%',
             height: '100%',
             backgroundColor: '#ec4c8a',
             opacity: 0.4,
           }}
-        ></div>
+        />
       </div>
       <div style={{ backgroundColor: '#ec4c8a', padding: '3px' }}>
         <p
@@ -91,23 +94,23 @@ const Home = () => {
       <Routes>
         <Route
           path="/"
-          element={
+          element={(
             <Grid
               setHeader={setHeader}
               setMenu={setMenu}
               setCountry={setCountryName}
             />
-          }
+          )}
         />
         <Route
           path="/:name"
-          element={
+          element={(
             <About
               setHeader={setHeader}
               setMenu={setMenu}
               setCountry={setCountryName}
             />
-          }
+          )}
         />
       </Routes>
     </section>

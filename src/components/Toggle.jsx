@@ -4,7 +4,7 @@ const Toggle = () => {
   const { toggle, slider } = styles;
   return (
     <div className={toggle}>
-      <div className={slider}></div>
+      <div className={slider} />
     </div>
   );
 };

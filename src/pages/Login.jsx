@@ -4,8 +4,13 @@ import ballhead from '../assets/images/ballhead.png';
 import Form from '../components/Form';
 
 const Login = () => {
-  const { wrapper, forgotUsername, signInWithTwitter, languages, logIn } =
-    styles;
+  const {
+    wrapper,
+    forgotUsername,
+    signInWithTwitter,
+    languages,
+    logIn,
+  } = styles;
 
   return (
     <section className={logIn}>
