@@ -21,6 +21,10 @@
 
 [Live Demo Link](https://leboroz-pollution.netlify.app)
 
+## Video Demo
+
+[Video](https://www.loom.com/share/4e6bfba217324455a3119d4c785ea544)
+
 
 ## Getting Started
 
