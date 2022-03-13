@@ -1,0 +1,28 @@
+@use '../global.scss' as *;
+
+.card {
+  background-color: $primary;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  text-decoration: none;
+
+  &.darker {
+    background-color: rgba($primary, $alpha: 0.9);
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  i {
+    align-self: flex-end;
+  }
+}

@@ -1,0 +1,41 @@
+@use '../global.scss' as *;
+
+.form {
+  background-color: $primary;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.75rem 0 2rem 0;
+  border-radius: 5px;
+  align-items: center;
+  width: 100%;
+
+  label {
+    width: 100%;
+  }
+
+  .field {
+    padding: 0.5rem;
+    width: 90%;
+    margin-left: 5%;
+    text-align: center;
+    border-radius: 5px;
+    border: 0;
+    outline: none;
+  }
+
+  .submit {
+    background-color: transparent;
+    border: 0;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+
+    i {
+      font-size: 2rem;
+    }
+  }
+}
