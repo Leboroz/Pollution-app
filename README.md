@@ -19,7 +19,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://leboroz-pollution.netlify.app)
+[Live Demo Link](https://leboroz-ballhead.netlify.app)
 
 ## Video Demo
 
