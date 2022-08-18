@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# ballhead
+# Pollution
 
 > this is a design for a mobile app that fetches from an pollution API and displays the data. Built with React-Redux and SASS.
 
